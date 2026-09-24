@@ -38,7 +38,33 @@ export const kolsInvestment: CaseStudyProject = {
     "GitHub Actions",
     "Vercel",
   ],
-  screenshots: [],
+  highlights: [
+    { icon: "chart", label: "Portfolio reconciliation" },
+    { icon: "database", label: "Redis-cached market data" },
+    { icon: "lock", label: "JWT + session management" },
+    { icon: "check", label: "Admin-reviewed deposits" },
+    { icon: "layers", label: "28 backend test files" },
+  ],
+  heroImage: {
+    src: "/projects/kols-investment/dashboard.png",
+    alt: "The Kols Investment dashboard showing total value, cash balance, unread signals and return momentum.",
+    width: 1595,
+    height: 892,
+  },
+  heroVideo: {
+    src: "/projects/kols-investment/dashboard-trade-tour.mp4",
+    poster: "/projects/kols-investment/dashboard-trade-tour-poster.jpg",
+    caption:
+      "A tour of the Investment Dashboard through to the Trade and funding centre, showing live portfolio metrics and the buy/sell interface.",
+  },
+  screenshots: [
+    {
+      src: "/projects/kols-investment/account-center.png",
+      alt: "The Kols Investment Account Center showing verification status, role, cash balance and last login.",
+      width: 1594,
+      height: 901,
+    },
+  ],
   overview:
     "Kols Investment is a demo investment workspace for buying, selling and tracking stocks and cryptocurrency, built as a React/Redux single-page app on top of a separate Express REST API. Where Zurickh Bank is framed around transactional integrity, this project is framed around markets and backend engineering: caching third-party market data sensibly, reconciling a portfolio's recorded state against its transaction history, and running scheduled work (price-alert checks, a nightly demo-account reset) on a serverless, cron-limited hosting plan.",
   problem:

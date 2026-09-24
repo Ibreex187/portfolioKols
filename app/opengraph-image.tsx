@@ -16,8 +16,8 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#ffffff",
-          color: "#171717",
+          background: "#faf8f5",
+          color: "#1c1917",
           fontFamily: "sans-serif",
         }}
       >
@@ -27,7 +27,7 @@ export default function Image() {
         <div style={{ fontSize: 64, fontWeight: 700, marginTop: 20 }}>
           {siteConfig.name}
         </div>
-        <div style={{ fontSize: 34, color: "#52525b", marginTop: 16 }}>
+        <div style={{ fontSize: 34, color: "#57534e", marginTop: 16 }}>
           {siteConfig.headline}
         </div>
       </div>

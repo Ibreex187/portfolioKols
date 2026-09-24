@@ -25,7 +25,45 @@ export const tyread: CaseStudyProject = {
     "Vitest",
     "Vercel",
   ],
-  screenshots: [],
+  highlights: [
+    { icon: "layers", label: "Catalogue from 3 sources" },
+    { icon: "book", label: "In-browser EPUB & PDF reading" },
+    { icon: "shield", label: "Sanitised Markdown publishing" },
+    { icon: "lock", label: "Role-based member/admin access" },
+    { icon: "check", label: "Vitest suite in CI" },
+  ],
+  heroImage: {
+    src: "/projects/tyread/landing.png",
+    alt: "The Tyread homepage, showing the reader/writer value proposition and Discover, Read, Write and Discuss feature cards.",
+    width: 1757,
+    height: 868,
+  },
+  heroVideo: {
+    src: "/projects/tyread/reader-demo.mp4",
+    poster: "/projects/tyread/reader-demo-poster.jpg",
+    caption:
+      "Opening a public-domain book in Tyread's in-browser reader, with text size, spacing and Dark/Sepia theme controls.",
+  },
+  screenshots: [
+    {
+      src: "/projects/tyread/catalogue.png",
+      alt: "The Tyread book catalogue with genre and sort filters.",
+      width: 1822,
+      height: 904,
+    },
+    {
+      src: "/projects/tyread/dashboard.png",
+      alt: "A reader's Tyread dashboard showing reading progress, a reading streak and earned badges.",
+      width: 1808,
+      height: 888,
+    },
+    {
+      src: "/projects/tyread/account-settings.png",
+      alt: "Tyread account settings, including avatar, display name, bio and preferred language.",
+      width: 1792,
+      height: 896,
+    },
+  ],
   overview:
     "Tyread is a social reading platform I built and deploy on Vercel. It's for readers and writers, not just one or the other. Readers can discover public-domain classics and books other members have uploaded, read them right in the browser, and track their progress on personal shelves. Writers draft original fiction chapter by chapter, get feedback from readers, and publish into the same public catalogue where admin picks and public-domain titles live. It's the biggest personal project I've built so far: a Prisma schema with more than 25 models, a layered NextAuth setup with optional OAuth, and a Vitest suite that runs against a real PostgreSQL instance in CI.",
   problem:

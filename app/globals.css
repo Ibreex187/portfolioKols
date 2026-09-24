@@ -2,11 +2,11 @@
 
 :root,
 [data-theme="light"] {
-  --background: #ffffff;
-  --foreground: #171717;
-  --muted: #f4f4f5;
-  --muted-foreground: #52525b;
-  --border: #e4e4e7;
+  --background: #faf8f5;
+  --foreground: #1c1917;
+  --muted: #f0ebe3;
+  --muted-foreground: #57534e;
+  --border: #e2dccf;
   --accent: #1d4ed8;
   --accent-foreground: #ffffff;
 }
@@ -46,6 +46,44 @@ body {
 
 [data-theme="dark"] .theme-toggle-light {
   display: none;
+}
+
+/* Per-project accent colours, scoped to each case study's own page via a
+   data-accent attribute. Everywhere else keeps the site-wide accent above. */
+[data-theme="light"] [data-accent="tyread"] {
+  --accent: #b45309;
+  --accent-foreground: #ffffff;
+}
+[data-theme="dark"] [data-accent="tyread"] {
+  --accent: #fbbf24;
+  --accent-foreground: #1c1917;
+}
+
+[data-theme="light"] [data-accent="zurickh-bank"] {
+  --accent: #0f766e;
+  --accent-foreground: #ffffff;
+}
+[data-theme="dark"] [data-accent="zurickh-bank"] {
+  --accent: #2dd4bf;
+  --accent-foreground: #042f2e;
+}
+
+[data-theme="light"] [data-accent="kols-investment"] {
+  --accent: #047857;
+  --accent-foreground: #ffffff;
+}
+[data-theme="dark"] [data-accent="kols-investment"] {
+  --accent: #34d399;
+  --accent-foreground: #022c22;
+}
+
+/* Reveal-on-scroll degrades to "always visible" without JavaScript, so
+   content is never stuck invisible for non-JS visitors. */
+@media (scripting: none) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

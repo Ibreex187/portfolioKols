@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { IconBadge } from "@/components/ui/IconBadge";
+import { Reveal } from "@/components/ui/Reveal";
 import { skills } from "@/content/skills";
 
 export const metadata: Metadata = {
@@ -18,23 +21,28 @@ export default function SkillsPage() {
         or roles on this site.
       </p>
 
-      <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {skills.map((group) => (
-          <div key={group.category}>
-            <h2 className="text-lg font-semibold text-foreground">
-              {group.category}
-            </h2>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {group.skills.map((skill) => (
-                <li
-                  key={skill}
-                  className="rounded-full border border-border px-3 py-1 text-sm text-foreground"
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Reveal key={group.category}>
+            <Card>
+              <div className="flex items-center gap-3">
+                <IconBadge icon={group.icon} />
+                <h2 className="text-lg font-semibold text-foreground">
+                  {group.category}
+                </h2>
+              </div>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="rounded-full border border-border px-3 py-1 text-sm text-foreground"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </Reveal>
         ))}
       </div>
     </Container>

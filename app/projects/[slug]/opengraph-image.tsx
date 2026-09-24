@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/content";
+import { projectAccentHex, DEFAULT_ACCENT_HEX } from "@/lib/project-accents";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -15,6 +16,7 @@ export default async function Image({
 }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
+  const accent = projectAccentHex[slug] ?? DEFAULT_ACCENT_HEX;
 
   return new ImageResponse(
     (
@@ -26,12 +28,12 @@ export default async function Image({
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#ffffff",
-          color: "#171717",
+          background: "#faf8f5",
+          color: "#1c1917",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ fontSize: 26, color: "#1d4ed8", fontWeight: 600 }}>
+        <div style={{ fontSize: 26, color: accent, fontWeight: 600 }}>
           Case study
         </div>
         <div style={{ fontSize: 60, fontWeight: 700, marginTop: 20 }}>
@@ -40,7 +42,7 @@ export default async function Image({
         <div
           style={{
             fontSize: 30,
-            color: "#52525b",
+            color: "#57534e",
             marginTop: 16,
             maxWidth: 900,
           }}

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { IconBadge } from "@/components/ui/IconBadge";
+import { Reveal } from "@/components/ui/Reveal";
 import { siteConfig } from "@/content/site-config";
+import { aboutChapters } from "@/content/about";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,36 +17,33 @@ export default function AboutPage() {
       <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
         About
       </h1>
+      <p className="mt-3 max-w-2xl text-muted-foreground">
+        I&rsquo;m {siteConfig.name}, though most people call me{" "}
+        {siteConfig.shortName}. Here&rsquo;s the short version of how I got
+        here.
+      </p>
 
-      <div className="mt-8 flex max-w-2xl flex-col gap-5 text-base leading-7 text-foreground/90">
-        <p>
-          I&rsquo;m {siteConfig.name}, though most people call me{" "}
-          {siteConfig.shortName}. I&rsquo;m a frontend and full-stack
-          JavaScript developer originally from Lagos, Nigeria, where I spent
-          over two years building web applications professionally: first as a
-          frontend developer at Oxford College, then as a junior full-stack
-          developer at Soft Quest Incorporated (SQI), working across React,
-          Node.js and Express.
-        </p>
-        <p>
-          I moved to the UK to study for an MSc in Computer Science with
-          Advanced Practice at Teesside University, and I&rsquo;m based in
-          Middlesbrough now. Outside coursework I keep building. The three
-          case studies on this site are personal projects I designed and
-          built from scratch, mainly to go deeper into full-stack engineering
-          than day-to-day feature work usually allows: schema design,
-          authentication, testing, and the less glamorous parts of keeping a
-          real application running in production.
-        </p>
-        <p>
-          I continue to work remotely as a junior full-stack developer at SQI
-          alongside my studies. I&rsquo;m looking for graduate or junior
-          full-stack and frontend roles in the UK, remote, hybrid or on-site,
-          where I can keep growing as a developer while contributing from day
-          one.
-        </p>
-        {siteConfig.rightToWork && <p>{siteConfig.rightToWork}</p>}
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {aboutChapters.map((chapter) => (
+          <Reveal key={chapter.title}>
+            <Card className="h-full">
+              <IconBadge icon={chapter.icon} />
+              <h2 className="mt-4 text-lg font-semibold text-foreground">
+                {chapter.title}
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-foreground/80">
+                {chapter.body}
+              </p>
+            </Card>
+          </Reveal>
+        ))}
       </div>
+
+      {siteConfig.rightToWork && (
+        <p className="mt-8 text-sm text-muted-foreground">
+          {siteConfig.rightToWork}
+        </p>
+      )}
     </Container>
   );
 }

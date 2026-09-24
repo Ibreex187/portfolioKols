@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { IconBadge } from "@/components/ui/IconBadge";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { siteConfig } from "@/content/site-config";
 
@@ -7,6 +9,9 @@ export const metadata: Metadata = {
   title: "Contact",
   description: `Get in touch with ${siteConfig.name}.`,
 };
+
+const TILE_CLASSES =
+  "group flex items-center gap-3 rounded-xl border border-border bg-background p-4 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-accent hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 export default function ContactPage() {
   return (
@@ -25,35 +30,54 @@ export default function ContactPage() {
         </p>
       )}
 
-      <div className="mt-8 flex flex-col gap-2 text-sm">
-        <a
-          href={`mailto:${siteConfig.email}`}
-          className="font-medium text-accent hover:underline"
-        >
-          {siteConfig.email}
+      <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <a href={`mailto:${siteConfig.email}`} className={TILE_CLASSES}>
+          <IconBadge icon="mail" />
+          <div className="min-w-0">
+            <p className="text-sm font-medium text-foreground group-hover:text-accent">
+              Email
+            </p>
+            <p className="truncate text-xs text-muted-foreground">
+              {siteConfig.email}
+            </p>
+          </div>
         </a>
-        <div className="flex gap-4">
-          <a
-            href={siteConfig.linkedin}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="text-accent hover:underline"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={siteConfig.github}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="text-accent hover:underline"
-          >
-            GitHub
-          </a>
-        </div>
+
+        <a
+          href={siteConfig.linkedin}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={TILE_CLASSES}
+        >
+          <IconBadge icon="linkedin" />
+          <div>
+            <p className="text-sm font-medium text-foreground group-hover:text-accent">
+              LinkedIn
+            </p>
+            <p className="text-xs text-muted-foreground">Connect with me</p>
+          </div>
+        </a>
+
+        <a
+          href={siteConfig.github}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={TILE_CLASSES}
+        >
+          <IconBadge icon="github" />
+          <div>
+            <p className="text-sm font-medium text-foreground group-hover:text-accent">
+              GitHub
+            </p>
+            <p className="text-xs text-muted-foreground">See my code</p>
+          </div>
+        </a>
       </div>
 
       <div className="mt-10 max-w-xl">
-        <ContactForm />
+        <Card>
+          <ContactForm />
+        </Card>
       </div>
     </Container>
   );

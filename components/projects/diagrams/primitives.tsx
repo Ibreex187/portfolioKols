@@ -23,7 +23,7 @@ export function DiagramBox({
         width={width}
         height={height}
         rx={8}
-        className="fill-background stroke-border"
+        className="fill-background stroke-accent/50"
         strokeWidth={1.5}
       />
       <text
@@ -71,7 +71,7 @@ export function DiagramArrow({
       y1={y1}
       x2={x2}
       y2={y2}
-      className="stroke-muted-foreground"
+      className="stroke-accent"
       strokeWidth={1.5}
       strokeDasharray={dashed ? "4 4" : undefined}
       markerEnd={`url(#${markerId})`}

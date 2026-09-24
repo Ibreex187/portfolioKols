@@ -3,17 +3,14 @@ import type { DiagramAsset } from "@/lib/types";
 
 export function ScreenshotGallery({
   screenshots,
-  slug,
 }: {
   screenshots: DiagramAsset[];
-  slug: string;
 }) {
+  // The hero visual at the top of the case study already covers the
+  // "no screenshots yet" placeholder, so this renders nothing until
+  // additional (non-hero) screenshots are supplied.
   if (screenshots.length === 0) {
-    return (
-      <div className="mt-4 rounded-lg border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-        [TODO: add screenshots to public/projects/{slug}/]
-      </div>
-    );
+    return null;
   }
 
   return (
@@ -23,9 +20,9 @@ export function ScreenshotGallery({
           key={shot.src}
           src={shot.src}
           alt={shot.alt}
-          width={640}
-          height={400}
-          className="rounded-lg border border-border"
+          width={shot.width}
+          height={shot.height}
+          className="h-auto w-full rounded-lg border border-border"
         />
       ))}
     </div>

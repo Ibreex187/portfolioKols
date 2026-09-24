@@ -12,7 +12,7 @@ export function DiagramFrame({
   viewBox?: string;
 }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-border bg-muted/40 p-4">
+    <div className="overflow-x-auto rounded-lg border border-accent/30 bg-accent/5 p-4">
       <svg
         role="img"
         aria-label={title}
@@ -29,7 +29,7 @@ export function DiagramFrame({
             markerHeight="6"
             orient="auto-start-reverse"
           >
-            <path d="M0,0 L10,5 L0,10 z" className="fill-muted-foreground" />
+            <path d="M0,0 L10,5 L0,10 z" className="fill-accent" />
           </marker>
         </defs>
         {children}

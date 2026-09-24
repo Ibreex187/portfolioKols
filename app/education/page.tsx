@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
-import { Timeline, TimelineItem } from "@/components/ui/Timeline";
+import { Card } from "@/components/ui/Card";
+import { IconBadge } from "@/components/ui/IconBadge";
+import { Reveal } from "@/components/ui/Reveal";
 import { education } from "@/content/education";
 
 export const metadata: Metadata = {
@@ -15,17 +17,27 @@ export default function EducationPage() {
         Education
       </h1>
 
-      <div className="mt-10">
-        <Timeline>
-          {education.map((entry) => (
-            <TimelineItem
-              key={entry.institution}
-              title={entry.qualification}
-              subtitle={`${entry.institution} · ${entry.location}`}
-              dateRange={`${entry.startDate} – ${entry.endDate}`}
-            />
-          ))}
-        </Timeline>
+      <div className="mt-10 flex flex-col gap-6">
+        {education.map((entry) => (
+          <Reveal key={entry.institution}>
+            <Card>
+              <div className="flex items-start gap-4">
+                <IconBadge icon="graduationCap" />
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    {entry.startDate} – {entry.endDate}
+                  </p>
+                  <h2 className="mt-1 text-lg font-semibold text-foreground">
+                    {entry.qualification}
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    {entry.institution} — {entry.location}
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </Reveal>
+        ))}
       </div>
     </Container>
   );

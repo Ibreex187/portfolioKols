@@ -30,7 +30,33 @@ export const zurickhBank: CaseStudyProject = {
     "Supertest",
     "Vercel",
   ],
-  screenshots: [],
+  highlights: [
+    { icon: "bolt", label: "Atomic MongoDB transactions" },
+    { icon: "lock", label: "PIN-gated money movement" },
+    { icon: "chart", label: "Tiered daily/monthly limits" },
+    { icon: "shield", label: "Abuse-resistant signup bonus" },
+    { icon: "database", label: "Double-entry ledger" },
+  ],
+  heroImage: {
+    src: "/projects/zurickh-bank/landing.png",
+    alt: "The Zurickh Bank landing page, showing the demo balance card and the \"Demo application. No real money is held or moved.\" disclaimer.",
+    width: 1920,
+    height: 902,
+  },
+  screenshots: [
+    {
+      src: "/projects/zurickh-bank/login.png",
+      alt: "The Zurickh Bank sign-in page, listing PIN-protected transfers, failed sign-in alerts and the demo disclaimer.",
+      width: 1920,
+      height: 902,
+    },
+    {
+      src: "/projects/zurickh-bank/savings.png",
+      alt: "The Zurickh Bank savings page, showing savings statistics and a savings health recommendation.",
+      width: 1920,
+      height: 902,
+    },
+  ],
   overview:
     "Zurickh Bank is a full-stack demo banking app covering the core of what a retail bank actually does day to day: accounts, transfers, savings, beneficiaries, a simulated stock portfolio, and an admin view over all of it. I built and deploy both the Express/MongoDB backend and the React/Vite frontend, and framed the whole project around one question: how do you move money between accounts without ever leaving the ledger in an inconsistent state, even under concurrent requests or mid-request failures?",
   problem:
