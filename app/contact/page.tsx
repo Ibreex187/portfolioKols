@@ -37,7 +37,7 @@ export default function ContactPage() {
             <p className="text-sm font-medium text-foreground group-hover:text-accent">
               Email
             </p>
-            <p className="truncate text-xs text-muted-foreground">
+            <p className="wrap-break-word text-xs text-muted-foreground">
               {siteConfig.email}
             </p>
           </div>

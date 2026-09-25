@@ -2,11 +2,11 @@
 
 :root,
 [data-theme="light"] {
-  --background: #faf8f5;
+  --background: #e8e6e1;
   --foreground: #1c1917;
-  --muted: #f0ebe3;
+  --muted: #d9d7d1;
   --muted-foreground: #57534e;
-  --border: #e2dccf;
+  --border: #c3c0b8;
   --accent: #1d4ed8;
   --accent-foreground: #ffffff;
 }
@@ -31,6 +31,16 @@
   --color-accent-foreground: var(--accent-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+html {
+  /* A percentage (not a fixed px) scales from whatever base size the
+     visitor's browser is already set to, rather than overriding it —
+     ~17px at the default 16px browser setting. Slightly larger text and a
+     more generous line-height floor benefit low-vision readers; anything
+     with its own leading-* utility already overrides this. */
+  font-size: 106.25%;
+  line-height: 1.6;
 }
 
 body {
@@ -75,6 +85,15 @@ body {
 [data-theme="dark"] [data-accent="kols-investment"] {
   --accent: #34d399;
   --accent-foreground: #022c22;
+}
+
+[data-theme="light"] [data-accent="restaurant-admin-dashboard"] {
+  --accent: #b91c1c;
+  --accent-foreground: #ffffff;
+}
+[data-theme="dark"] [data-accent="restaurant-admin-dashboard"] {
+  --accent: #f87171;
+  --accent-foreground: #2a0a0a;
 }
 
 /* Reveal-on-scroll degrades to "always visible" without JavaScript, so

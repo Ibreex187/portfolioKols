@@ -22,7 +22,10 @@ export default function PrivacyPage() {
           there&rsquo;s nothing to consent to.
         </p>
         <p>
-          The <a href="/contact" className="text-accent hover:underline">contact form</a>{" "}
+          The{" "}
+          <a href="/contact" className="text-accent underline underline-offset-2">
+            contact form
+          </a>{" "}
           collects the name, email address and message you choose to submit,
           purely so I can reply to you. That message is sent directly to my
           inbox by email and is not stored in a database. I don&rsquo;t keep
@@ -39,7 +42,7 @@ export default function PrivacyPage() {
           If you have any questions about this, email me at{" "}
           <a
             href={`mailto:${siteConfig.email}`}
-            className="text-accent hover:underline"
+            className="text-accent underline underline-offset-2"
           >
             {siteConfig.email}
           </a>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { OtherProjectCard } from "@/components/projects/OtherProjectCard";
 import { getCaseStudyProjects, getOtherProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -32,48 +33,11 @@ export default function ProjectsPage() {
       <h2 className="mt-16 text-xl font-semibold text-foreground">
         Other projects
       </h2>
-      <ul className="mt-6 flex flex-col divide-y divide-border border-t border-b border-border">
+      <div className="mt-6 flex flex-col gap-4">
         {others.map((project) => (
-          <li
-            key={project.slug}
-            className="flex flex-col gap-2 py-4 sm:flex-row sm:items-baseline sm:justify-between"
-          >
-            <div>
-              <p className="font-medium text-foreground">
-                {project.name}{" "}
-                <span className="font-normal text-muted-foreground">
-                  ({project.date})
-                </span>
-              </p>
-              <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-                {project.description}
-              </p>
-            </div>
-            <div className="flex shrink-0 gap-4 text-sm">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="rounded-md font-medium text-accent hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                >
-                  Live
-                </a>
-              )}
-              {project.repoUrl && (
-                <a
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="rounded-md font-medium text-accent hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                >
-                  Repo
-                </a>
-              )}
-            </div>
-          </li>
+          <OtherProjectCard key={project.slug} project={project} />
         ))}
-      </ul>
+      </div>
     </Container>
   );
 }

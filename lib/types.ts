@@ -102,6 +102,8 @@ export interface OtherProject {
   liveUrl?: string;
   repoUrl?: string;
   techStack: string[];
+  /** Small thumbnail shown on its compact card. Renders a placeholder until supplied. */
+  heroImage?: DiagramAsset;
 }
 
 export interface Award {

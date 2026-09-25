@@ -16,7 +16,7 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#faf8f5",
+          background: "#e8e6e1",
           color: "#1c1917",
           fontFamily: "sans-serif",
         }}
