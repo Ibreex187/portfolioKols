@@ -13,7 +13,9 @@ export const siteConfig: SiteConfig = {
   linkedin: "https://www.linkedin.com/in/yusuf-ibrahim-45a328336",
   cvPath: "/cv.pdf",
   // TODO: set NEXT_PUBLIC_SITE_URL to the production domain once deployed on Vercel.
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // `||` (not `??`) so a var that's present-but-empty (e.g. added with no
+  // value typed in) falls back too, instead of producing an invalid URL.
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   // TODO: fill in a right-to-work statement (e.g. "I have the right to work in the UK.").
   // Left empty deliberately — never guess this.
   rightToWork: "",
